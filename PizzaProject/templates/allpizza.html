@@ -22,11 +22,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="small mb-1" for="size">Size</label>
-                             <select class="form-control" id="size" name="size">
-                             <option>All</option>
-                                <option>Large</option>
-                                <option>Medium</option>
-                                <option>Small</option>
+                            <select class="form-control" id="size" name='size'>
+                                <option>All</option>
+                                {% for x in sizes %}
+                                <option>{{x}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>

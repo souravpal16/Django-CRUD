@@ -26,5 +26,4 @@ urlpatterns = [
     path('AllPizza/', views.AllPizza, name = 'AllPizza'),
     path('Delete/<int:pk>', views.Delete, name = 'Delete'),
     path('Edit/<int:pk>', views.Edit, name = 'Edit'),
-    path('Layout/', views.Layout, name = 'Layout'),
 ]

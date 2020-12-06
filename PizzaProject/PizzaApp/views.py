@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import PizzaModel, Toppings, Sizes
 from .forms import PizzaModelForm
@@ -36,7 +36,10 @@ def NoPizza(request):
 def AllPizza(request):
     size = 'All'
     type_of_pizza = 'All'
-
+    sizes = Sizes.objects.all()
+    s = []
+    for x in sizes:
+        s.append(x.size)
     if request.method == 'POST':
         size = request.POST.get('size')
         type_of_pizza = request.POST.get('type')
@@ -50,10 +53,12 @@ def AllPizza(request):
     elif type_of_pizza != 'All':
         pizza = PizzaModel.objects.filter(type_of_pizza__contains = type_of_pizza)
     
-    return render(request, 'allpizza.html', {'pizza': pizza})
+    return render(request, 'allpizza.html', {'pizza': pizza, 'sizes': s})
 
 
 def Delete(request, pk):
+    pizza = get_object_or_404(PizzaModel, pk = pk)
+
     if request.method == "POST":
         print(request.POST.get('value'))
         if request.POST.get('value')=='Yes':
@@ -66,14 +71,18 @@ def Delete(request, pk):
 
 
 def Edit(request, pk):
+    pizza = get_object_or_404(PizzaModel, pk = pk)
+
     sizes = Sizes.objects.all()
     s = []
     for x in sizes:
         s.append(x.size)
+
     toppings = Toppings.objects.all()
     t = []
     for x in toppings:
         t.append(x.topp)
+
     if request.method == "POST":
         toppings = []
         for x in t:
