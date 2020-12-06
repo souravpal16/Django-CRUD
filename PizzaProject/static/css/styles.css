@@ -1,0 +1,12 @@
+#create{
+    height:300px;
+    background-color: rgb(128, 39, 17);
+    margin:5px;
+    text-align: center;
+}
+
+#showall{
+    background-color: rgb(133, 39, 133);
+    margin:5px;
+    height:300px;
+}

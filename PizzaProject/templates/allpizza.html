@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block body_block %}
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <form method = "POST">
+            {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1" for="type" >Type</label>
+                            <select class="form-control" id="type" name="type">
+                            <option>All</option>
+                                <option>Regular</option>
+                                <option>Square</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1" for="size">Size</label>
+                             <select class="form-control" id="size" name="size">
+                             <option>All</option>
+                                <option>Large</option>
+                                <option>Medium</option>
+                                <option>Small</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+    <div class="row justify-content-center">
+         <button type="submit" class="btn btn-info">filter</button>
+    </div>
+               
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+<div class="row">
+{% for p in pizza%}
+
+<div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static 'img/pizza1.jpg'  %}" alt="pizza img">
+          <div class="card-body">
+            <h4 class="card-title">{{p.size}} and {{p.type_of_pizza}}</h4>
+            <p class="card-text">
+                {% for topp in p.toppings%}
+                {{topp}},
+                {% endfor %}
+            </p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="{% url 'Edit' p.pk %}" class="btn btn-success">Edit</a>
+            <a href="{% url 'Delete' p.pk %}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
+
+

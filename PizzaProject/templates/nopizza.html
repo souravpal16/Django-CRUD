@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">No Pizza Created</h1>
+        
+        <ul class="list-unstyled">
+          <li><a href="{% url 'create' %}">Let's bake One</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card-header">
+                <h3 class="text-center font-weight-light my-4">Let's Bake A Pizza</h3>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% comment %} {% for field in form %} {% endcomment %}
+                        <div class="form-group">
+                            {% comment %} <label class="small mb-1" for={{field.id_for_label}}>{{field.label}}</label>
+                            {% endcomment %}
+                            {% comment %} {{field}} {% endcomment %}
+                            <label class="small mb-1" for="size">Size</label>
+                            <select class="form-control" id="size" name='size'>
+                                {% for x in sizes %}
+                                <option>{{x}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            {% comment %} <label class="small mb-1" for={{field.id_for_label}}>{{field.label}}</label>
+                            {% endcomment %}
+                            {% comment %} {{field}} {% endcomment %}
+                            <label class="small mb-1" for="type">Type</label>
+                            <select class="form-control" id="type" name='type_of_pizza'>
+                                <option>Regular</option>
+                                <option>Square</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            {% comment %} <label class="small mb-1" for={{field.id_for_label}}>{{field.label}}</label>
+                            {% endcomment %}
+                            {% comment %} {{field}} {% endcomment %}
+                            <label class="small mb-1">Toppings</label>
+                            {% for t in toppings %}
+                            <div class="checkbox">
+                                
+                               <label> <input type="checkbox" name = {{t}} value={{t}}> {{t}}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% comment %} {% endfor %} {% endcomment %}
+                        <div class="form-group mt-4 mb-0"><button type="submit" class="btn btn-primary btn-block"
+                                href="{% url 'index' %}">Create Pizza</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

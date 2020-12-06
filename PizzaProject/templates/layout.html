@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Add toppings or new size</h3>
+                <div class="card-body">
+                    <form method = "POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="small mb-1" for="toppings">Add Toppings</label>
+                            <input type = "text" class="form-control" id = "toppings" name = 'toppings'>
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" for="size">Add size</label>
+                            <input type = "text" class="form-control" id = "size" name ='size'>
+                        </div>
+                        <div class="form-group mt-4 mb-0"><button type="submit" class="btn btn-primary btn-block" href="{% url 'index' %}">Add</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

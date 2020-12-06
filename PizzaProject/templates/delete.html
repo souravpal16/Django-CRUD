@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Caution: Pizza would be permanently deleted</h1>
+        
+        <ul class="list-unstyled">
+        <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <li><h2>Are you sure?</h2></li>
+           <input type="submit" class="form-control" name="value" value="Yes" id="pwd">
+            <input type="submit" class="form-control" name="value" value="No" id="pwd">
+        <div>
+        <form>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
