@@ -35,4 +35,4 @@ The endpoints are relative to the domain name. For development purposes, '127.0.
 5. Installing everything from the requirements.txt
 6. On your command prompt, navigate to the folder where manage.py is located.
 7. run python manage.py migrate, then python manage.py makemigrations, then python manage.py migrate to migrate your database and to be on the safe side.
-8. Then run python manage.py runserver and open 127.0.0.1:8000 on your browser.
+8. Then run python manage.py runserver --insecure and open 127.0.0.1:8000 on your browser. --insecure because DEBUG is set to False in settings.py
