@@ -1,6 +1,6 @@
 # Django-CRUD
 
-<img src="https://cdn-cjmik.nitrocdn.com/UjszoEMIGzQLBmRYICliaPmdTnvQlovN/assets/static/optimized/rev-381f457/wp-content/uploads/2019/05/postgre-database-development-india.png" width="400"> | <img src="https://static.djangoproject.com/img/logos/django-logo-positive.png" width="400" height="200"> 
+<img src="imgg/postgresqlimg.png" width="400"> | <img src="https://static.djangoproject.com/img/logos/django-logo-positive.png" width="400" height="200"> 
 ## Description:
 This project is based on Django and emphasizes the use of CRUD using postgresql. Its allows the user to make pizza based on the sizes and toppings available in the database.
 The user can add other sizes of pizza and toppings available to make the pizza. The options available to make a pizza is totally dependent on the toppings available in the 
